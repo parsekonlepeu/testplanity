@@ -1,0 +1,13 @@
+.choice-date {
+  display: flex;
+  flex-direction: row;
+  padding: 16px 12px;
+  gap: 10px;
+  border: 1px solid #ECEEED;
+  border-radius: 6px;
+  background-color: white;
+  height: 48px;
+  width: 300px;
+  color: #34423E;
+  cursor: pointer;
+}

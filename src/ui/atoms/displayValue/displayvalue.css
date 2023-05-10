@@ -1,0 +1,33 @@
+.d-v-main {
+  display: flex;
+  flex-direction: row;
+  border: 1px #ECEEED solid;
+  border-radius: 6px;
+  height: 48px;
+  width: 119px;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.d-v-value {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 16px 8px;
+  width: 71px;
+  border-right: 1px solid #ECEEED;
+}
+
+.d-v-unit {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #F9F9F9;
+  width: 48px;
+}
