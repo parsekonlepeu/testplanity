@@ -4,8 +4,6 @@ import { DisplayValue } from "./DisplayValue";
 const meta = {
   title: "Test/Atoms/DisplayValue",
   component: DisplayValue,
-  tags: ["autodocs"],
-  argTypes: {},
 } satisfies Meta<typeof DisplayValue>;
 
 export default meta;

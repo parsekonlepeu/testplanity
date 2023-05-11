@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+.c-b-contenair {
+  height: 48px;
+  width: 216px;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #ECEEED;
+  border-radius: 6px;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.c-b-day {
+  flex: 1;
+  border: none;
+  background-color: white;
+  border-right: 1px solid #ECEEED;
+  cursor: pointer;
+}
+
+.c-b-month {
+  flex: 1;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}

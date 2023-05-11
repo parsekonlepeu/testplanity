@@ -4,8 +4,6 @@ import { ChoiceEmail } from "./ChoiceEmail";
 const meta = {
   title: "Test/Molecules/ChoiceEmail",
   component: ChoiceEmail,
-  tags: ["autodocs"],
-  argTypes: {},
 } satisfies Meta<typeof ChoiceEmail>;
 
 export default meta;

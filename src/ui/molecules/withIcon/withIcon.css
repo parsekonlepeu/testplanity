@@ -1,0 +1,13 @@
+.wrapper-c-b {
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.c-b-icon-wrapper {
+  width: 24px;
+  height: 100%;
+  display: flex;
+}

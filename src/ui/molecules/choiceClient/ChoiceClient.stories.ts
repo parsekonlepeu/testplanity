@@ -4,8 +4,6 @@ import { ChoiceClient } from "./ChoiceClient";
 const meta = {
   title: "Test/Molecules/ChoiceClient",
   component: ChoiceClient,
-  tags: ["autodocs"],
-  argTypes: {},
 } satisfies Meta<typeof ChoiceClient>;
 
 export default meta;

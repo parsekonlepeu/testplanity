@@ -1,4 +1,4 @@
-import { FC, useCallback, useState } from "react";
+import { FC } from "react";
 import "./tapButton.css";
 import { useHover } from "../../../utils/hooks/useHover";
 
@@ -11,7 +11,6 @@ interface TapButtonProps {
   hoverTextColor?: string;
   backgroundColor?: string;
   onClick?: () => void;
-  Icon?: FC;
 }
 
 export const TapButton: FC<TapButtonProps> = ({
@@ -19,7 +18,6 @@ export const TapButton: FC<TapButtonProps> = ({
   labelColor = "#34423E",
   backgroundColor = "#F56565",
   label,
-  Icon,
   hoverTextColor = "#48BB78",
 }) => {
   const { hover, controls } = useHover();
@@ -32,13 +30,9 @@ export const TapButton: FC<TapButtonProps> = ({
         backgroundColor: type === "contained" ? backgroundColor : "transparent",
         color: hover && type === "text" ? hoverTextColor : labelColor,
         textDecoration: type === "text" ? "underline" : undefined,
+        padding: type === "text" ? "0px" : undefined,
       }}
     >
-      {Icon && (
-        <div className="wrapper-icon">
-          <Icon />
-        </div>
-      )}
       {label}
     </button>
   );

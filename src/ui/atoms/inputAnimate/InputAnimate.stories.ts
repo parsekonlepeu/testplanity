@@ -4,8 +4,6 @@ import { InputAnimate } from "./InputAnimate";
 const meta = {
   title: "Test/Atoms/InputAnimate",
   component: InputAnimate,
-  tags: ["autodocs"],
-  argTypes: {},
 } satisfies Meta<typeof InputAnimate>;
 
 export default meta;

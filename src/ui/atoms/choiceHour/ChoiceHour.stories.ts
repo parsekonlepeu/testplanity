@@ -4,8 +4,6 @@ import { ChoiceHour } from "./ChoiceHour";
 const meta = {
   title: "Test/Atoms/ChoiceHour",
   component: ChoiceHour,
-  tags: ["autodocs"],
-  argTypes: {},
 } satisfies Meta<typeof ChoiceHour>;
 
 export default meta;

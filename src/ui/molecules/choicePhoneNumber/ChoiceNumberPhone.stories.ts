@@ -4,8 +4,6 @@ import { ChoicePhoneNumber } from "./ChoicePhoneNumber";
 const meta = {
   title: "Test/Molecules/ChoicePhoneNumber",
   component: ChoicePhoneNumber,
-  tags: ["autodocs"],
-  argTypes: {},
 } satisfies Meta<typeof ChoicePhoneNumber>;
 
 export default meta;

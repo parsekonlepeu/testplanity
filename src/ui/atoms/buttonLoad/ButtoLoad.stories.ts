@@ -4,8 +4,6 @@ import { ButtonLoad } from "./ButtonLoad";
 const meta = {
   title: "Test/Atoms/ButtonLoad",
   component: ButtonLoad,
-  tags: ["autodocs"],
-  argTypes: {},
 } satisfies Meta<typeof ButtonLoad>;
 
 export default meta;

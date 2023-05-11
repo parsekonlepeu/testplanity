@@ -1,19 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import {
-  MdContentCopy,
-  MdContentCut,
-  MdDelete,
-  MdAutorenew,
-} from "react-icons/md";
 import { TapButton } from "./TapButton";
 
 const meta = {
   title: "Test/Atoms/Button",
   component: TapButton,
-  tags: ["autodocs"],
-  argTypes: {
-    backgroundColor: { control: "color" },
-  },
 } satisfies Meta<typeof TapButton>;
 
 export default meta;
@@ -47,38 +37,5 @@ export const Blue: Story = {
     type: "contained",
     label: "Button",
     backgroundColor: "#2C5282",
-  },
-};
-
-export const WithIconCopy: Story = {
-  args: {
-    type: "text",
-    label: "Copier",
-    Icon: MdContentCopy,
-  },
-};
-
-export const WithIconCut: Story = {
-  args: {
-    type: "text",
-    label: "Couper",
-    Icon: MdContentCut,
-  },
-};
-
-export const WithIconDelete: Story = {
-  args: {
-    type: "text",
-    label: "Supprimer",
-    Icon: MdDelete,
-  },
-};
-
-export const Refresh: Story = {
-  args: {
-    type: "text",
-    label: "Refresh",
-    Icon: MdAutorenew,
-    labelColor: "#48BB78",
   },
 };
