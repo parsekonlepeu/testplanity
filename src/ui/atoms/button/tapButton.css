@@ -1,20 +1,26 @@
-.dropdown-main {
-  height: 48px;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+.tap-button {
   display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   border-radius: 6px;
-  border: 1px solid #ECEEED
+  flex-direction: row;
+  border: none;
+  cursor: pointer;
+  height: 36px;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 16px;
+  color: #34423E;
 }
 
-.dropdown-list {
-  position: absolute;
-  left: 0px;
-  top: 52px;
-}
-
-.dropdown-choice {
-  height: 48px;
-  border-bottom: 1px solid #ECEEED;
+.wrapper-icon {
+  height: 24px;
+  width: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

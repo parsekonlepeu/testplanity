@@ -1,0 +1,37 @@
+#button-load {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  border: none;
+  height: 32px;
+  width: max-content;
+  padding: 8px;
+  position: relative;
+}
+
+.wrapper-loader {
+  position: absolute;
+  background-color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 95%;
+  width: 95%;
+}
+
+.spinner {
+  animation-name: spin;
+  animation-duration: 500ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,5 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { MdContentCopy, MdContentCut, MdDelete } from "react-icons/md";
+import {
+  MdContentCopy,
+  MdContentCut,
+  MdDelete,
+  MdAutorenew,
+} from "react-icons/md";
 import { TapButton } from "./TapButton";
 
 const meta = {
@@ -21,7 +26,7 @@ export const Text: Story = {
   },
 };
 
-export const ContainedRed: Story = {
+export const Red: Story = {
   args: {
     type: "contained",
     label: "Button",
@@ -29,7 +34,7 @@ export const ContainedRed: Story = {
   },
 };
 
-export const ContainedGreen: Story = {
+export const Green: Story = {
   args: {
     type: "contained",
     label: "Button",
@@ -37,7 +42,7 @@ export const ContainedGreen: Story = {
   },
 };
 
-export const ContainedBlue: Story = {
+export const Blue: Story = {
   args: {
     type: "contained",
     label: "Button",
@@ -66,5 +71,14 @@ export const WithIconDelete: Story = {
     type: "text",
     label: "Supprimer",
     Icon: MdDelete,
+  },
+};
+
+export const Refresh: Story = {
+  args: {
+    type: "text",
+    label: "Refresh",
+    Icon: MdAutorenew,
+    labelColor: "#48BB78",
   },
 };

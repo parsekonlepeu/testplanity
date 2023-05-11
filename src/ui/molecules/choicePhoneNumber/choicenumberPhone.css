@@ -1,0 +1,46 @@
+.wrapper-c-p-n {
+  position: relative; 
+  display: flex;
+  justify-content: space-between;
+  height: 48px;
+  width: 240px;
+  gap: 4px;
+  padding-left: 12px;
+  padding-right: 8px;
+  align-items: center;
+  border-radius: 6px;
+  background-color: white;
+  border: 1px solid #ECEEED;
+}
+
+.c-p-n-pays {
+  height: 48px;
+  width: max-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.flag {
+  display: flex;
+  height: 12px;
+  width: 16px;
+  flex-direction: row;
+}
+
+.flag-bleu {
+  background-color: #00267F;
+  flex: 1;
+}
+
+.flag-white {
+  background-color: white;
+  flex: 1;
+}
+
+.flag-red {
+  background-color: #F31830;
+  flex: 1;
+}
