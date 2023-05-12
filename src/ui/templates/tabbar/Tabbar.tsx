@@ -3,6 +3,8 @@ import "./tabbar.css";
 import { TapButton } from "../../atoms/button/TapButton";
 import { WithIcon } from "../../molecules/withIcon/WithIcon";
 import { MdContentCut, MdContentCopy, MdDelete } from "react-icons/md";
+import { useAppDispatch } from "../../../store/hookTypedredux";
+import { changeCreated } from "../../../store/slices/appointmentSlice";
 
 interface TabbarProps {
   created: boolean;
@@ -11,8 +13,9 @@ interface TabbarProps {
 }
 
 export const Tabbar: FC<TabbarProps> = ({ created, came, onChange }) => {
+  const dispatch = useAppDispatch();
   const handleClickChoiced = useCallback(() => {
-    onChange("choiced");
+    dispatch(changeCreated);
   }, []);
 
   const handleClickCame = useCallback(() => {
