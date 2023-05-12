@@ -21,7 +21,7 @@ export const ToggleSwitch: FC<ToggleSwitchProps> = ({
       <input
         id="input-toggle-switch"
         type="checkbox"
-        checked={value !== undefined ? value : undefined}
+        defaultChecked={value !== undefined ? value : undefined}
         disabled={disabled}
         onClick={handleClick}
       />

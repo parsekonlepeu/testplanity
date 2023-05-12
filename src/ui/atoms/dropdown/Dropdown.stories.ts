@@ -40,7 +40,7 @@ export const collaborateur: Story = {
         name: "Denis",
       },
       {
-        name: "Thomas",
+        name: "Denis",
       },
       { name: "le cinquième élément !!" },
     ],

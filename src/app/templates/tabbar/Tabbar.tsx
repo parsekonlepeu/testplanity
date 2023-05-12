@@ -1,29 +1,38 @@
 import { FC, useCallback } from "react";
 import "./tabbar.css";
-import { TapButton } from "../../atoms/button/TapButton";
-import { WithIcon } from "../../molecules/withIcon/WithIcon";
+import { TapButton } from "../../../ui/atoms/button/TapButton";
+import { WithIcon } from "../../../ui/molecules/withIcon/WithIcon";
 import { MdContentCut, MdContentCopy, MdDelete } from "react-icons/md";
-import { useAppDispatch } from "../../../store/hookTypedredux";
-import { changeCreated } from "../../../store/slices/appointmentSlice";
+import { useAppDispatch, useAppSelector } from "../../../store/hookTypedredux";
+import { simpleChangeAppointment } from "../../../store/slices/appointmentSlice";
 
-interface TabbarProps {
-  created: boolean;
-  came: boolean;
-  onChange: OnChangeText;
-}
-
-export const Tabbar: FC<TabbarProps> = ({ created, came, onChange }) => {
+export const Tabbar: FC = () => {
   const dispatch = useAppDispatch();
+  const created = useAppSelector((state) => state.appointment.created);
+  const came = useAppSelector((state) => state.appointment.came);
   const handleClickChoiced = useCallback(() => {
-    dispatch(changeCreated);
+    // dispatch(simpleChangeAppointment({
+    //   keys: [],
+    //   points: []
+    // }));
   }, []);
 
   const handleClickCame = useCallback(() => {
-    onChange("came");
+    dispatch(
+      simpleChangeAppointment({
+        keys: ["came"],
+        points: [true],
+      })
+    );
   }, []);
 
   const handleClickNotCame = useCallback(() => {
-    onChange("notCame");
+    dispatch(
+      simpleChangeAppointment({
+        keys: ["came"],
+        points: [false],
+      })
+    );
   }, []);
 
   return (

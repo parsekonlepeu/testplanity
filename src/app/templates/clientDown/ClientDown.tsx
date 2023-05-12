@@ -1,45 +1,28 @@
 import { FC } from "react";
-import { WithIcon } from "../../molecules/withIcon/WithIcon";
+import { WithIcon } from "../../../ui/molecules/withIcon/WithIcon";
 import {
   MdOutlineCake,
   MdOutlinePerson,
   MdContentCopy,
   MdCardMembership,
 } from "react-icons/md";
-import {
-  Birthday,
-  ChoiceBirthday,
-} from "../../atoms/choiceBirthday/ChoiceBirthday";
-import { ToggleButton } from "../../atoms/toggleButton/ToggleButton";
-import { ToggleSwitch } from "../../atoms/toggleSwitch/ToggleSwitch";
+import { ChoiceBirthday } from "../../../ui/atoms/choiceBirthday/ChoiceBirthday";
+import { ToggleButton } from "../../../ui/atoms/toggleButton/ToggleButton";
+import { ToggleSwitch } from "../../../ui/atoms/toggleSwitch/ToggleSwitch";
 import "./clientDown.css";
-import { TapButton } from "../../atoms/button/TapButton";
-import { InfoClient } from "../../molecules/infoClient/InfoClient";
-import { Loyalty } from "../../templates/client/Client";
+import { TapButton } from "../../../ui/atoms/button/TapButton";
+import { InfoClient } from "../../../ui/molecules/infoClient/InfoClient";
+import { useAppSelector } from "../../../store/hookTypedredux";
 
-interface ClientDownProps {
-  genre?: string;
-  birthday?: Birthday;
-  remiderSMS?: boolean;
-  marketingSMS?: boolean;
-  loyalty?: Loyalty;
-  infoClient?: string;
-}
-
-export const ClientDown: FC<ClientDownProps> = ({
-  genre = "Homme",
-  birthday = {
-    day: 20,
-    month: "Sept",
-  },
-  remiderSMS,
-  marketingSMS,
-  loyalty = {
-    points: 42,
-    gain: 10,
-  },
-  infoClient = "Quam inposita tranquillis pleraeque sunt primigenia eis quae institutores ad.",
-}) => {
+export const ClientDown: FC = () => {
+  const genre = useAppSelector((state) => state.appointment.genre);
+  const birthday = useAppSelector((state) => state.appointment.birthday);
+  const remiderSMS = useAppSelector((state) => state.appointment.remiderSMS);
+  const marketingSMS = useAppSelector(
+    (state) => state.appointment.marketingSMS
+  );
+  const infoClient = useAppSelector((state) => state.appointment.infoClient);
+  const loyalty = useAppSelector((state) => state.appointment.loyalty);
   return (
     <div className="client-down-contenair">
       <div className="client-down-first-line">

@@ -2,7 +2,7 @@
 
 #choiceclient {
   position: relative; 
-  height: 46px;
+  height: 44px;
   width: 100%;
   border: none;
   outline: none;
@@ -12,6 +12,7 @@
   font-weight: 400;
   font-size: 13px;
   line-height: 16px;
+  background-color: transparent;
 }
 #choiceclient:focus {
   border: none;

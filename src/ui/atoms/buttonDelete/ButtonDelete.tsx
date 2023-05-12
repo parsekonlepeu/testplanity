@@ -15,6 +15,9 @@ export const ButtonDelete: FC<ButtonDeleteProps> = ({
   size = 48,
 }) => {
   const { hover, controls } = useHover();
+  const wrapp = () => {
+    console.log("onClick");
+  };
   return (
     <button
       {...controls}

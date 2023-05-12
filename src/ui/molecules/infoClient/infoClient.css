@@ -1,0 +1,25 @@
+.tinfo-enter {
+  /* opacity: 0; */
+  transform: scaleY(0);
+  height: 0px;
+}
+
+.tinfo-enter-active {
+  /* opacity: 1; */
+  transform: scaleY(1);
+  /* height: 48px; */
+  height: 35px;
+  transition: 400ms;
+}
+
+.tinfo-exit  {
+  /* height: 48px; */
+  transform: scaleY(1);
+  height: 35px;
+}
+
+.tinfo-exit-active {
+  height: 0px;
+  transform: scaleY(0);
+  transition: 400ms;
+}

@@ -2,20 +2,14 @@ import { useState, useCallback } from "react";
 
 export const useHover = () => {
   const [hover, setHover] = useState(false);
-  const handleMouseEnter: React.MouseEventHandler<HTMLElement> = useCallback(
-    (e) => {
-      e.preventDefault();
+  const handleMouseEnter: React.MouseEventHandler<HTMLElement> =
+    useCallback(() => {
       setHover(true);
-    },
-    []
-  );
-  const handleMouseLeave: React.MouseEventHandler<HTMLElement> = useCallback(
-    (e) => {
-      e.preventDefault();
+    }, []);
+  const handleMouseLeave: React.MouseEventHandler<HTMLElement> =
+    useCallback(() => {
       setHover(false);
-    },
-    []
-  );
+    }, []);
 
   return {
     hover,

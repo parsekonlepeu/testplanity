@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, forwardRef } from "react";
 import "./info.css";
 
 interface InfoProps {
@@ -7,14 +7,17 @@ interface InfoProps {
   onClick: () => void;
 }
 
-export const Info: FC<InfoProps> = ({ label, text, onClick }) => {
-  return (
-    <div
-      className="info-contenair"
-      onClick={onClick}
-    >
-      <p className="info-label">{label}</p>
-      <p className="text-label">{text}</p>
-    </div>
-  );
-};
+export const Info = forwardRef<HTMLDivElement, InfoProps>(
+  ({ label, text, onClick }, ref) => {
+    return (
+      <div
+        className="info-contenair"
+        onClick={onClick}
+        ref={ref}
+      >
+        <p className="info-label">{label}</p>
+        <p className="text-label">{text}</p>
+      </div>
+    );
+  }
+);

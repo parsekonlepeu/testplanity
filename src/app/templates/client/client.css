@@ -9,6 +9,7 @@
   flex-direction: column;
   background-color: white;
   gap: 16px;
+  transition: 2s;
 }
 
 .client-wrapper-icon {

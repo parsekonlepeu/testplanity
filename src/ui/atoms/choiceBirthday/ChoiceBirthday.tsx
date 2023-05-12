@@ -1,10 +1,6 @@
 import { FC, useCallback } from "react";
 import "./choiceBirthday.css";
-
-export type Birthday = {
-  day: number;
-  month: string;
-};
+import { Birthday } from "../../../utils/type";
 
 export interface ChoiceBirthdayprops {
   onChange?: (newBirthday: Birthday) => void;
