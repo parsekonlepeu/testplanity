@@ -3,10 +3,12 @@
   display: flex;
   justify-content: space-between;
   height: 48px;
-  width: 356px;
   gap: 4px;
   padding-left: 12px;
   padding-right: 8px;
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;    
+  box-sizing: border-box; 
   align-items: center;
   border-radius: 6px;
   background-color: white;

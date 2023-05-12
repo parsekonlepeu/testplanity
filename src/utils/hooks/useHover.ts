@@ -9,7 +9,7 @@ export const useHover = () => {
     },
     []
   );
-  const handleMouseOut: React.MouseEventHandler<HTMLElement> = useCallback(
+  const handleMouseLeave: React.MouseEventHandler<HTMLElement> = useCallback(
     (e) => {
       e.preventDefault();
       setHover(false);
@@ -21,7 +21,7 @@ export const useHover = () => {
     hover,
     controls: {
       onMouseEnter: handleMouseEnter,
-      onMouseOut: handleMouseOut,
+      onMouseLeave: handleMouseLeave,
     },
   };
 };

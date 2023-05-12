@@ -5,15 +5,18 @@ import "./choiceClient.css";
 import { InputAnimate } from "../../atoms/inputAnimate/InputAnimate";
 import { useManageInput } from "../../../utils/hooks/useManageInput";
 
+export type CreateClient = (name: string) => void;
+
 interface ChoiceClientProps {
-  onCreate: (name: string) => void;
-  onChange: (change: string) => void;
+  onCreate?: CreateClient;
+  onChange?: (change: string) => void;
   alreadyCreated?: boolean;
   nameClient?: string;
   label?: string;
   loading?: boolean;
   error?: boolean;
   disabled?: boolean;
+  width?: string;
 }
 
 export const ChoiceClient: FC<ChoiceClientProps> = ({
@@ -25,10 +28,11 @@ export const ChoiceClient: FC<ChoiceClientProps> = ({
   loading = false,
   error = false,
   disabled = false,
+  width = "356px",
 }) => {
   const { value, focus, functions } = useManageInput(nameClient, onChange);
   const handleCreate: ClickButtonLoad = useCallback(() => {
-    onCreate(value);
+    onCreate && onCreate(value);
   }, [value]);
 
   return (
@@ -36,6 +40,7 @@ export const ChoiceClient: FC<ChoiceClientProps> = ({
       className="input-choiceclient"
       style={{
         border: focus ? "1px solid #48BB78" : undefined,
+        width: width,
       }}
     >
       <InputAnimate

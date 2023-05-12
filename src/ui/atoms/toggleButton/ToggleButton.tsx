@@ -1,13 +1,22 @@
-import { FC, useState, useCallback } from "react";
+import { FC, useState, useCallback, useEffect } from "react";
 import "./toggleButton.css";
 
 interface ToggleButtonProps {
+  select?: string;
   values: string[];
   onChange: (clikedValue: string) => void;
 }
 
-export const ToggleButton: FC<ToggleButtonProps> = ({ values, onChange }) => {
-  const [valueSelect, setValueSelect] = useState(values[0]);
+export const ToggleButton: FC<ToggleButtonProps> = ({
+  values,
+  onChange,
+  select,
+}) => {
+  const [valueSelect, setValueSelect] = useState(select ? select : values[0]);
+  useEffect(() => {
+    select && setValueSelect(select);
+  }, [select]);
+
   return (
     <div className="t-b-container">
       {values.map((value, index) => {

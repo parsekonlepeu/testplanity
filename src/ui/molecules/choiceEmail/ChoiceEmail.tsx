@@ -5,9 +5,10 @@ import "./choiceEmail.css";
 
 interface ChoiceEmailProps {
   disabled?: boolean;
-  email: string;
+  email?: string;
   label?: string;
-  onChange: (email: string) => void;
+  onChange?: OnChangeText;
+  width?: string;
 }
 
 export const ChoiceEmail: FC<ChoiceEmailProps> = ({
@@ -15,6 +16,7 @@ export const ChoiceEmail: FC<ChoiceEmailProps> = ({
   email = "",
   label = "Email",
   onChange,
+  width = "356px",
 }) => {
   const { value, focus, functions } = useManageInput(email, onChange);
   return (
@@ -23,6 +25,7 @@ export const ChoiceEmail: FC<ChoiceEmailProps> = ({
       style={{
         backgroundColor: disabled ? "#ECEEED" : "white",
         border: focus ? "1px solid #48BB78" : undefined,
+        width: width,
       }}
     >
       <InputAnimate

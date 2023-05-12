@@ -2,13 +2,13 @@ import { useState, useCallback } from "react";
 
 export const useManageInput = (
   valueInitiel: string,
-  onChangeValue: (newValue: string) => void
+  onChangeValue?: OnChangeText
 ) => {
   const [value, setValue] = useState(valueInitiel);
   const [focus, setFocus] = useState(false);
   const onChange: React.ChangeEventHandler<HTMLInputElement> = useCallback(
     (e) => {
-      onChangeValue(e.target.value);
+      onChangeValue && onChangeValue(e.target.value);
       setValue(e.target.value);
     },
     []

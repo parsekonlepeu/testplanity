@@ -5,17 +5,19 @@ import { MdArrowDropDown } from "react-icons/md";
 import "./choicenumberPhone.css";
 
 interface ChoicePhoneNumberProps {
-  label: string;
-  number: string;
+  label?: string;
+  number?: string;
   disabled?: boolean;
-  onChange: (number: string) => void;
+  onChange?: OnChangeText;
+  width?: string;
 }
 
 export const ChoicePhoneNumber: FC<ChoicePhoneNumberProps> = ({
-  label,
-  number,
+  label = "Téléphone",
+  number = "",
   disabled = false,
   onChange,
+  width = "240px",
 }) => {
   const { value, focus, functions } = useManageInput(number, onChange);
   return (
@@ -24,6 +26,7 @@ export const ChoicePhoneNumber: FC<ChoicePhoneNumberProps> = ({
       style={{
         backgroundColor: disabled ? "#ECEEED" : "white",
         border: focus ? "1px solid #48BB78" : undefined,
+        width: width,
       }}
     >
       <div className="c-p-n-pays">

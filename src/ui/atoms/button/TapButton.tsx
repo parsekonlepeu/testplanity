@@ -19,6 +19,7 @@ export const TapButton: FC<TapButtonProps> = ({
   backgroundColor = "#F56565",
   label,
   hoverTextColor = "#48BB78",
+  onClick,
 }) => {
   const { hover, controls } = useHover();
   return (
@@ -31,7 +32,10 @@ export const TapButton: FC<TapButtonProps> = ({
         color: hover && type === "text" ? hoverTextColor : labelColor,
         textDecoration: type === "text" ? "underline" : undefined,
         padding: type === "text" ? "0px" : undefined,
+        height: type === "text" ? undefined : "36px",
+        fontWeight: type === "text" ? 600 : 400,
       }}
+      onClick={onClick}
     >
       {label}
     </button>

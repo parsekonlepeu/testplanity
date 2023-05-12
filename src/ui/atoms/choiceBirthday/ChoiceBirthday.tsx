@@ -3,7 +3,7 @@ import "./choiceBirthday.css";
 
 export type Birthday = {
   day: number;
-  month: number;
+  month: string;
 };
 
 export interface ChoiceBirthdayprops {

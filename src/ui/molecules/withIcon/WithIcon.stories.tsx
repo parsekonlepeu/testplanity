@@ -1,13 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { WithIcon } from "./WithIcon";
-import {
-  MdOutlineCake,
-  MdOutlinePerson,
-  MdContentCopy,
-  MdContentCut,
-  MdDelete,
-  MdAutorenew,
-} from "react-icons/md";
+import { MdOutlineCake, MdOutlinePerson } from "react-icons/md";
 import { ChoiceBirthday } from "../../atoms/choiceBirthday/ChoiceBirthday";
 import { ToggleButton } from "../../atoms/toggleButton/ToggleButton";
 import { TapButton } from "../../atoms/button/TapButton";

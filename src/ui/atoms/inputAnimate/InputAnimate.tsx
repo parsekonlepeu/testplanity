@@ -21,14 +21,7 @@ export const InputAnimate: FC<InputAnimateProps> = ({
   disabled = false,
 }) => {
   return (
-    <div
-      className="main-choiceclient"
-      style={
-        {
-          // backgroundColor: disabled ? "red" : undefined,
-        }
-      }
-    >
+    <div className="main-choiceclient">
       <input
         type={type}
         id="choiceclient"

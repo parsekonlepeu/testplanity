@@ -21,6 +21,7 @@ export const Red: Story = {
     type: "contained",
     label: "Button",
     backgroundColor: "#F56565",
+    labelColor: "white",
   },
 };
 
@@ -29,6 +30,7 @@ export const Green: Story = {
     type: "contained",
     label: "Button",
     backgroundColor: "#48BB78",
+    labelColor: "white",
   },
 };
 
@@ -37,5 +39,6 @@ export const Blue: Story = {
     type: "contained",
     label: "Button",
     backgroundColor: "#2C5282",
+    labelColor: "white",
   },
 };

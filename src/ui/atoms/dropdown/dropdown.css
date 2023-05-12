@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+
 #dropdown-wrapper {
   position: relative;
   display: inline-block;
@@ -27,6 +29,11 @@
   order: 0;
   flex-grow: 0;
   overflow: hidden;
+}
+
+.dropdown-main:focus {
+  border: none;
+  outline: none;
 }
 
 .dropdown-contenair {
@@ -79,7 +86,11 @@
   overflow-y: scroll;
 }
 
-.dropdown-choice {
+.dropdown-list::-webkit-scrollbar {
+  display: none;
+}
+
+button.dropdown-choice {
   height: 48px;
   border: none;
   width: 100%;
@@ -106,6 +117,7 @@
 
 .dropdown-choice:hover {
   background-color: whitesmoke;
+  border: none;
 }
 
 .dropdown-choice:active {
