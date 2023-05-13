@@ -1,12 +1,12 @@
-import { FC } from "react";
-import { MdDeleteOutline } from "react-icons/md";
-import { useHover } from "../../../utils/hooks/useHover";
-import "./buttonDelete.css";
+import { FC } from "react"
+import { MdDeleteOutline } from "react-icons/md"
+import { useHover } from "../../../utils/hooks/useHover"
+import "./buttonDelete.css"
 
 interface ButtonDeleteProps {
-  onClick?: () => void;
-  disabled?: boolean;
-  size?: number;
+  onClick?: () => void
+  disabled?: boolean
+  size?: number
 }
 
 export const ButtonDelete: FC<ButtonDeleteProps> = ({
@@ -14,10 +14,7 @@ export const ButtonDelete: FC<ButtonDeleteProps> = ({
   disabled = false,
   size = 48,
 }) => {
-  const { hover, controls } = useHover();
-  const wrapp = () => {
-    console.log("onClick");
-  };
+  const { hover, controls } = useHover()
   return (
     <button
       {...controls}
@@ -33,5 +30,5 @@ export const ButtonDelete: FC<ButtonDeleteProps> = ({
     >
       <MdDeleteOutline size={size / 2.3} />
     </button>
-  );
-};
+  )
+}

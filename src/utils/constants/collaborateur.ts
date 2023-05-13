@@ -1,4 +1,4 @@
-import { Collaborateur } from "../type";
+import { Collaborateur } from "../type"
 
 export const LIST_COLLABORATEUR: Collaborateur[] = [
   {
@@ -16,4 +16,4 @@ export const LIST_COLLABORATEUR: Collaborateur[] = [
   {
     name: "le cinquième élément",
   },
-];
+]

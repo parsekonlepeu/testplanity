@@ -1,4 +1,4 @@
-import { Prestation } from "../type";
+import { Prestation } from "../type"
 
 export const LIST_PRESTATIONS: Prestation[] = [
   {
@@ -26,4 +26,4 @@ export const LIST_PRESTATIONS: Prestation[] = [
     time: 5,
     price: 5,
   },
-];
+]

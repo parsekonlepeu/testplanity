@@ -1,10 +1,19 @@
-import { FC } from "react";
-import "./choicedate.css";
+import { forwardRef } from "react"
+import "./choicedate.css"
 
 interface ChoiceDateProps {
-  date: string;
+  date: string
 }
 
-export const ChoiceDate: FC<ChoiceDateProps> = ({ date }) => {
-  return <button className="choice-date">{date}</button>;
-};
+export const ChoiceDate = forwardRef<HTMLButtonElement, ChoiceDateProps>(
+  ({ date }, ref) => {
+    return (
+      <button
+        ref={ref}
+        className="choice-date"
+      >
+        {date}
+      </button>
+    )
+  }
+)

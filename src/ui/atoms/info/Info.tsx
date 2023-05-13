@@ -1,10 +1,10 @@
-import { FC, forwardRef } from "react";
-import "./info.css";
+import { FC, forwardRef } from "react"
+import "./info.css"
 
 interface InfoProps {
-  label: string;
-  text: string;
-  onClick: () => void;
+  label: string
+  text: string
+  onClick: () => void
 }
 
 export const Info = forwardRef<HTMLDivElement, InfoProps>(
@@ -18,6 +18,6 @@ export const Info = forwardRef<HTMLDivElement, InfoProps>(
         <p className="info-label">{label}</p>
         <p className="text-label">{text}</p>
       </div>
-    );
+    )
   }
-);
+)

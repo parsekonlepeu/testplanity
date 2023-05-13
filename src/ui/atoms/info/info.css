@@ -11,7 +11,11 @@
   border: 1px solid #ECEEED;
   border-radius: 6px;
   gap: 2px;
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;    
+  box-sizing: border-box;
   padding: 12px;
+  overflow: hidden;
 }
 
 .info-label {

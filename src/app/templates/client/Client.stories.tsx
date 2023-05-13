@@ -1,18 +1,18 @@
-import type { Meta } from "@storybook/react";
-import { FC } from "react";
-import { Client } from "./Client";
+import type { Meta } from "@storybook/react"
+import { FC } from "react"
+import { Client } from "./Client"
 import {
   AppointmentState,
   initAppointmentReducer,
   initialStateAppointment as mockState,
   simpleChangeAppointmentReducer,
-} from "../../../store/slices/appointmentSlice";
-import { Provider } from "react-redux";
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+} from "../../../store/slices/appointmentSlice"
+import { Provider } from "react-redux"
+import { configureStore, createSlice } from "@reduxjs/toolkit"
 
 type ChildMock = {
-  appointmentState: AppointmentState;
-};
+  appointmentState: AppointmentState
+}
 
 const Mockstore: FC<React.PropsWithChildren<ChildMock>> = ({
   appointmentState,
@@ -34,15 +34,15 @@ const Mockstore: FC<React.PropsWithChildren<ChildMock>> = ({
   >
     {children}
   </Provider>
-);
+)
 
 const meta = {
   title: "Test/Templates/Client",
   decorators: [(story) => <div style={{ padding: "3rem" }}>{story()}</div>],
   component: Client,
-} satisfies Meta<typeof Client>;
+} satisfies Meta<typeof Client>
 
-export default meta;
+export default meta
 
 export const Default = {
   decorators: [
@@ -50,4 +50,4 @@ export const Default = {
       <Mockstore appointmentState={mockState}>{story()}</Mockstore>
     ),
   ],
-};
+}
