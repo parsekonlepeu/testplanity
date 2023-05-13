@@ -1,10 +1,11 @@
-import { FC } from "react";
-import "./withIcon.css";
+import { FC } from "react"
+import "./withIcon.css"
 
 interface WithIconProps {
-  Icon: FC;
-  posIcon?: "left" | "center";
-  width?: string;
+  Icon: FC
+  posIcon?: "left" | "center"
+  width?: string
+  iconColor?: string
 }
 
 export const WithIcon: FC<React.PropsWithChildren<WithIconProps>> = ({
@@ -30,5 +31,5 @@ export const WithIcon: FC<React.PropsWithChildren<WithIconProps>> = ({
       </div>
       {children}
     </div>
-  );
-};
+  )
+}

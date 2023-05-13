@@ -1,0 +1,31 @@
+.list-prest-contenair {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.list-prest-add {
+  width: 1044px;
+  height: 56px;
+  background-color: #CDCDCD;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='6' ry='6' stroke='%23333' stroke-width='1' stroke-dasharray='5' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.list-prest-add-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.list-prest-add:hover {
+  filter: brightness(0.95);
+}

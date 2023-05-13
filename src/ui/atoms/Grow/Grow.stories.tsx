@@ -1,4 +1,3 @@
-import { createRef } from "react"
 import type { Meta, StoryObj } from "@storybook/react"
 import { Grow } from "./Grow"
 import "../Grow/grow.css"
@@ -11,7 +10,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const base: Story = {
+export const vertical: Story = {
   render: (args) => {
     return (
       <div className="">
@@ -30,5 +29,28 @@ export const base: Story = {
   args: {
     duration: 400,
     isin: true,
+  },
+}
+
+export const horizontal: Story = {
+  render: (args) => {
+    return (
+      <div className="">
+        <Grow {...args}>
+          <div
+            style={{
+              height: "600px",
+              width: "800px",
+              backgroundColor: "blueviolet",
+            }}
+          ></div>
+        </Grow>
+      </div>
+    )
+  },
+  args: {
+    duration: 600,
+    isin: false,
+    direction: "horizontal",
   },
 }

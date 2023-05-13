@@ -1,0 +1,67 @@
+
+
+.date-contenair {
+  height: 88px;
+  width: 1044px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 6px;
+  border: 1px solid #ECEEED;
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;    
+  box-sizing: border-box;
+  padding-right: 20px;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.date-main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.cont-date-inp-whole-day {
+  display: flex;
+  flex-direction: row;
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;    
+  box-sizing: border-box;
+  padding-left: 18px;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.date-icon-contenair {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.date-choice-hour {
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  gap: 16px;
+  padding-left: 16px;
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;    
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.date-choice-hour-count {
+  font-weight: 600;
+}
+
+.date-repeat-cont {
+  color: #48BB78
+}

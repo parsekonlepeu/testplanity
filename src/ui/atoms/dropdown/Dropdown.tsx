@@ -5,24 +5,25 @@ import {
   useLayoutEffect,
   useMemo,
   useState,
-} from "react";
-import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
-import "./dropdown.css";
+} from "react"
+import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md"
+import "./dropdown.css"
+import { ChangeDropdown } from "../../../utils/type"
 
 type ListDropDown<T> = T extends Record<"name", string> & Record<string, string>
   ? T[]
-  : any[];
+  : any[]
 
 interface DropdownProps {
-  label: string;
-  labelSelect: string;
-  onChange?: (choice: Record<"name", string> & Record<string, string>) => void;
-  listChoice: ListDropDown<unknown>;
-  disable?: boolean;
-  color: string;
+  label: string
+  labelSelect: string
+  onChange?: ChangeDropdown
+  listChoice: ListDropDown<unknown>
+  disable?: boolean
+  color: string
 }
 
-const othersColors = ["#9F7AEA", "#F56565", "#ECC94B"];
+const othersColors = ["#9F7AEA", "#F56565", "#ECC94B"]
 
 export const Dropdown: FC<DropdownProps> = ({
   label,
@@ -32,33 +33,33 @@ export const Dropdown: FC<DropdownProps> = ({
   disable = false,
   color = "#48BB78",
 }) => {
-  const [value, setValue] = useState("");
-  const [open, setOpen] = useState(false);
-  const [width, setWidth] = useState(100);
+  const [value, setValue] = useState("")
+  const [open, setOpen] = useState(false)
+  const [width, setWidth] = useState(100)
 
-  const colors = useMemo(() => [color, ...othersColors], [color]);
+  const colors = useMemo(() => [color, ...othersColors], [color])
 
   useEffect(() => {
     const handleClickOutside = () => {
-      setOpen(false);
-    };
-    document.addEventListener("click", handleClickOutside);
-    return () => document.removeEventListener("click", handleClickOutside);
-  }, []);
+      setOpen(false)
+    }
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [])
 
   useLayoutEffect(() => {
-    const dropdown = document.getElementById("dropdown-wrapper");
-    dropdown && setWidth(dropdown?.getClientRects()[0].width);
-  }, [label]);
+    const dropdown = document.getElementById("dropdown-wrapper")
+    dropdown && setWidth(dropdown?.getClientRects()[0].width)
+  }, [label])
 
   const handleClick: React.MouseEventHandler<HTMLButtonElement> = useCallback(
     (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      !disable && setOpen((open) => !open);
+      e.preventDefault()
+      e.stopPropagation()
+      !disable && setOpen((open) => !open)
     },
     [disable]
-  );
+  )
 
   return (
     <div id="dropdown-wrapper">
@@ -106,11 +107,13 @@ export const Dropdown: FC<DropdownProps> = ({
           {listChoice.map((choice, index) => {
             const handleClickChoice: React.MouseEventHandler<
               HTMLButtonElement
-            > = () => {
-              setValue(choice.name);
-              onChange && onChange(choice);
-              setOpen(false);
-            };
+            > = (e) => {
+              e.preventDefault()
+              e.stopPropagation()
+              setValue(choice.name)
+              onChange && onChange(choice)
+              setOpen(false)
+            }
             return (
               <button
                 className="dropdown-choice"
@@ -118,7 +121,7 @@ export const Dropdown: FC<DropdownProps> = ({
                 style={{
                   minWidth: `${width}px`,
                 }}
-                onClick={handleClickChoice}
+                onMouseDown={handleClickChoice}
               >
                 <span
                   style={{
@@ -127,10 +130,10 @@ export const Dropdown: FC<DropdownProps> = ({
                 />
                 <p>{choice.name}</p>
               </button>
-            );
+            )
           })}
         </div>
       ) : null}
     </div>
-  );
-};
+  )
+}

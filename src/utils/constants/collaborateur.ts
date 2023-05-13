@@ -11,7 +11,7 @@ export const LIST_COLLABORATEUR: Collaborateur[] = [
     name: "Denis",
   },
   {
-    name: "Denis",
+    name: "Thomas",
   },
   {
     name: "le cinquième élément",

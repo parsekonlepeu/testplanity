@@ -1,5 +1,4 @@
 .grow-enter {
-  max-height: 0px;
   overflow: hidden;
 }
 
@@ -12,7 +11,6 @@
 }
 
 .grow-exit-active {
-  max-height: 0px;
   overflow: hidden;
 }
 

@@ -1,0 +1,7 @@
+.icon-button {
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
