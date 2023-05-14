@@ -1,50 +1,46 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Dropdown } from "./Dropdown";
+import type { Meta, StoryObj } from "@storybook/react"
+import { Dropdown } from "./Dropdown"
+import { LIST_PRESTATIONS } from "../../../utils/constants/prestation"
+import { LIST_COLLABORATEUR } from "../../../utils/constants/collaborateur"
 
 const meta = {
   title: "Test/Atoms/Dropdown",
   component: Dropdown,
-} satisfies Meta<typeof Dropdown>;
+  parameters: {
+    backgrounds: {
+      default: "default",
+      values: [{ name: "default", value: "white" }],
+    },
+  },
+} satisfies Meta<typeof Dropdown>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const prestation: Story = {
   args: {
     label: "Choisir une prestation",
     labelSelect: "prestation",
-    listChoice: [
-      { name: "Coupe homme (cheveux courts)" },
-      { name: "Coupe homme (cheveux longs)" },
-      {
-        name: "Coupe + Balayage + Couleur + Shampoing + Mise en pli (cheveux longs & épais)",
-      },
-      {
-        name: "Coupe + Balayage + Couleur + Shampoing + Mise en pli (cheveux cours & fin)",
-      },
-      { name: "le cinquième élément !!" },
-    ],
-    onChange: (choice) => console.log(choice),
+    listChoice: LIST_PRESTATIONS,
     color: "#48BB78",
   },
-};
+}
 
 export const collaborateur: Story = {
   args: {
     label: "Choisir un collaborateur",
     labelSelect: "collaborateur",
-    listChoice: [
-      { name: "Jean-Michel" },
-      { name: "Juliette" },
-      {
-        name: "Denis",
-      },
-      {
-        name: "Denis",
-      },
-      { name: "le cinquième élément !!" },
-    ],
-    onChange: (choice) => console.log(choice),
+    listChoice: LIST_COLLABORATEUR,
     color: "#48BB78",
   },
-};
+}
+
+export const disabled: Story = {
+  args: {
+    label: "Choisir un collaborateur",
+    labelSelect: "collaborateur",
+    listChoice: LIST_COLLABORATEUR,
+    color: "#48BB78",
+    disable: true,
+  },
+}

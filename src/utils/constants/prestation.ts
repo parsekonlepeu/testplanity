@@ -26,4 +26,14 @@ export const LIST_PRESTATIONS: Prestation[] = [
     time: 5,
     price: 5,
   },
+  {
+    name: "pour le scroll",
+    time: 5,
+    price: 5,
+  },
+  {
+    name: "parsekonlepeu",
+    time: 5,
+    price: 5,
+  },
 ]

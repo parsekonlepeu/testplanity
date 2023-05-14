@@ -7,6 +7,10 @@
   overflow: hidden;
 }
 
+.t-b-container > button:not(:first-child) {
+  border-left: 1px #ECEEED solid;
+}
+
 .t-b-button {
   height: 48px;
   width: 100px;

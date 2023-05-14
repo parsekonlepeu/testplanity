@@ -5,6 +5,7 @@ import {
   IdPrestationAppointment,
   ListePrestation,
   Loyalty,
+  PrestationAppointment,
   TimeAppointment,
 } from "../../utils/type"
 import { v4 as uuidv4 } from "uuid"
@@ -59,7 +60,15 @@ export const initialStateAppointment: AppointmentState = {
     hour: 15,
     minute: 30,
   },
-  listPrestations: [],
+  listPrestations: [
+    {
+      id: uuidv4(),
+      name: "",
+      price: 60,
+      collaborateur: "",
+      time: 60,
+    },
+  ],
 }
 
 export const simpleChangeAppointmentReducer = <
@@ -112,13 +121,18 @@ export const changeCollPrestationsReducer = (
 
 export const changePresPrestationsReducer = (
   state: AppointmentState,
-  action: PayloadAction<{ id: IdPrestationAppointment; newPresta: string }>
+  action: PayloadAction<{
+    id: IdPrestationAppointment
+    newPresta: PrestationAppointment
+  }>
 ) => {
   const index = state.listPrestations.findIndex(
     (prest) => prest.id === action.payload.id
   )
   if (index !== -1) {
-    state.listPrestations[index].name = action.payload.newPresta
+    state.listPrestations[index].name = action.payload.newPresta.name
+    state.listPrestations[index].price = action.payload.newPresta.price
+    state.listPrestations[index].time = action.payload.newPresta.time
   } else {
     console.error("prestation inconnue")
   }

@@ -2,7 +2,6 @@ import { forwardRef } from "react"
 import { ChangeDropdown, PrestationAppointment } from "../../../utils/type"
 import "./presta.css"
 import { DisplayValue } from "../../atoms/displayValue/DisplayValue"
-import { Grow } from "../../atoms/Grow/Grow"
 import { ButtonDelete } from "../buttonDelete/ButtonDelete"
 import { Dropdown } from "../../atoms/dropdown/Dropdown"
 import { MdOutlineDescription } from "react-icons/md"
@@ -15,6 +14,7 @@ interface PrestaProps {
   onChangeCollaborateur: ChangeDropdown
   onDelete: () => void
   prestation: PrestationAppointment
+  key: string
 }
 
 export const Presta = forwardRef<HTMLDivElement, PrestaProps>(
@@ -25,6 +25,7 @@ export const Presta = forwardRef<HTMLDivElement, PrestaProps>(
       onChangeCollaborateur,
       prestation,
       onDelete,
+      key,
     },
     ref
   ) => {
@@ -32,10 +33,11 @@ export const Presta = forwardRef<HTMLDivElement, PrestaProps>(
       <div
         className="presta-container"
         ref={ref}
+        key={key}
       >
         <div className="p-c-left">
           <div className="p-c-icon-contenair">
-            <MdOutlineDescription />
+            <MdOutlineDescription size={20} />
           </div>
           <div className="p-c-prest-coll">
             <Dropdown
@@ -45,6 +47,7 @@ export const Presta = forwardRef<HTMLDivElement, PrestaProps>(
               onChange={onChangePrestation}
               color="#48BB78"
               disable={disabled}
+              value={prestation.name}
             />
             <Dropdown
               label="Choisir un collaborateur"
@@ -53,6 +56,7 @@ export const Presta = forwardRef<HTMLDivElement, PrestaProps>(
               onChange={onChangeCollaborateur}
               color="#63B3ED"
               disable={disabled}
+              value={prestation.collaborateur}
             />
           </div>
         </div>
@@ -65,13 +69,7 @@ export const Presta = forwardRef<HTMLDivElement, PrestaProps>(
             value={prestation.price}
             unit="€"
           />
-          <Grow
-            isin={!disabled}
-            duration={300}
-            direction="horizontal"
-          >
-            <ButtonDelete onClick={onDelete} />
-          </Grow>
+          {!disabled ? <ButtonDelete onClick={onDelete} /> : null}
         </div>
       </div>
     )

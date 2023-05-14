@@ -1,7 +1,5 @@
-import { FC, useCallback } from "react"
-import "./listPresta.css"
+import { FC, createRef, useCallback } from "react"
 import { useAppDispatch, useAppSelector } from "../../../store/hookTypedredux"
-import { prestation } from "../../../ui/atoms/dropdown/Dropdown.stories"
 import {
   addPrestation,
   changeCollPrestations,
@@ -10,50 +8,81 @@ import {
 } from "../../../store/slices/appointmentSlice"
 import { MdAddCircleOutline } from "react-icons/md"
 import { Presta } from "../../../ui/molecules/presta/Presta"
-import { ChangeDropdown } from "../../../utils/type"
+import {
+  ChangeDropdown,
+  ListePrestation,
+  PrestationAppointment,
+} from "../../../utils/type"
+import { CSSTransition, TransitionGroup } from "react-transition-group"
 import "./listPresta.css"
+
+type PrestationWithRef = PrestationAppointment & {
+  nodeRef: React.Ref<HTMLDivElement>
+}
+
+type ListePrestationWithRef = PrestationWithRef[]
+
+const addNodeRef = (
+  listPrestations: ListePrestation
+): ListePrestationWithRef => {
+  return listPrestations.map((prestation) => {
+    return { ...prestation, nodeRef: createRef() }
+  })
+}
 
 export const ListPresta: FC = () => {
   const dispatch = useAppDispatch()
   const listPrestations = useAppSelector(
     (state) => state.appointment.listPrestations
   )
+  const created = useAppSelector((state) => state.appointment.created)
   const handleAddPresta = useCallback(() => {
-    dispatch(addPrestation(null))
-  }, [])
+    created && dispatch(addPrestation(null))
+  }, [created])
+
   return (
     <div className="list-prest-contenair">
-      {listPrestations.map((prestation) => {
-        const onDelete = () => {
-          dispatch(delPrestation(prestation.id))
-        }
-        const onChangePrestation: ChangeDropdown = (choice) => {
-          dispatch(
-            changePresPrestations({
-              id: prestation.id,
-              newPresta: choice.name,
-            })
+      <TransitionGroup className="prest-list">
+        {addNodeRef(listPrestations).map((prestation) => {
+          const onDelete = () => {
+            dispatch(delPrestation(prestation.id))
+          }
+          const onChangePrestation: ChangeDropdown = (choice) => {
+            dispatch(
+              changePresPrestations({
+                id: prestation.id,
+                newPresta: choice,
+              })
+            )
+          }
+          const onChangeCollaborateur: ChangeDropdown = (choice) => {
+            dispatch(
+              changeCollPrestations({
+                id: prestation.id,
+                newColl: choice.name,
+              })
+            )
+          }
+          return (
+            <CSSTransition
+              key={prestation.id}
+              nodeRef={prestation.nodeRef}
+              timeout={200}
+              classNames="prest"
+            >
+              <Presta
+                prestation={prestation}
+                onDelete={onDelete}
+                onChangePrestation={onChangePrestation}
+                onChangeCollaborateur={onChangeCollaborateur}
+                key={prestation.id}
+                ref={prestation.nodeRef}
+                disabled={!created}
+              />
+            </CSSTransition>
           )
-        }
-        const onChangeCollaborateur: ChangeDropdown = (choice) => {
-          dispatch(
-            changeCollPrestations({
-              id: prestation.id,
-              newColl: choice.name,
-            })
-          )
-        }
-        return (
-          <div key={prestation.id}>
-            <Presta
-              prestation={prestation}
-              onDelete={onDelete}
-              onChangePrestation={onChangePrestation}
-              onChangeCollaborateur={onChangeCollaborateur}
-            />
-          </div>
-        )
-      })}
+        })}
+      </TransitionGroup>
       <button
         className="list-prest-add"
         onClick={handleAddPresta}

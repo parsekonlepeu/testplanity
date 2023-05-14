@@ -1,14 +1,14 @@
-import { FC } from "react";
-import "./inputAnimate.css";
+import { FC } from "react"
+import "./inputAnimate.css"
 
 interface InputAnimateProps {
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
-  onFocus?: React.FocusEventHandler<HTMLInputElement>;
-  onBlur?: React.FocusEventHandler<HTMLInputElement>;
-  value?: string;
-  label: string;
-  type?: React.HTMLInputTypeAttribute;
-  disabled?: boolean;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>
+  onFocus?: React.FocusEventHandler<HTMLInputElement>
+  onBlur?: React.FocusEventHandler<HTMLInputElement>
+  value?: string
+  label: string
+  type?: React.HTMLInputTypeAttribute
+  disabled?: boolean
 }
 
 export const InputAnimate: FC<InputAnimateProps> = ({
@@ -21,10 +21,10 @@ export const InputAnimate: FC<InputAnimateProps> = ({
   disabled = false,
 }) => {
   return (
-    <div className="main-choiceclient">
+    <div className="main-inp-anim">
       <input
         type={type}
-        id="choiceclient"
+        id="inp-anim"
         placeholder="&nbsp;"
         onChange={onChange}
         onFocus={onFocus}
@@ -32,7 +32,7 @@ export const InputAnimate: FC<InputAnimateProps> = ({
         value={value}
         disabled={disabled}
       />
-      <span className="label-choice-client">{label}</span>
+      <span className="label-inp-anim">{label}</span>
     </div>
-  );
-};
+  )
+}

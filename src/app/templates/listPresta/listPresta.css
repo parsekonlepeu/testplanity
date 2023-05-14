@@ -7,7 +7,7 @@
 .list-prest-add {
   width: 1044px;
   height: 56px;
-  background-color: #CDCDCD;
+  background-color: #F6F7F8;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,4 +28,44 @@
 
 .list-prest-add:hover {
   filter: brightness(0.95);
+}
+
+.prest-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.prest-enter {
+  opacity: 0;
+  /* max-height: 0px;
+  padding-top: 0px; */
+  max-height: 0px;
+  overflow: hidden;
+}
+.prest-enter-active {
+  opacity: 1;
+  max-height: 88px;
+  /* padding-bottom: 16px;
+  padding-top: 16px; */
+  transition: opacity 200ms, max-height 200ms;
+  /* transition: max-height 200ms; */
+  overflow: hidden;
+}
+.prest-exit {
+  opacity: 1;
+  /* padding-bottom: 16px;
+  padding-top: 16px; */
+  max-height: 88px;
+  overflow: hidden;
+}
+.prest-exit-active {
+  opacity: 0;
+  max-height: 0px;
+  /* padding-top: 0px;
+  padding-bottom: 0px; */
+  transition: opacity 200ms, max-height 200ms;
+  /* transition: max-height 200ms, padding-top 200ms, padding-bottom 2000ms; */
+  overflow: hidden;
+  z-index: 101;
 }

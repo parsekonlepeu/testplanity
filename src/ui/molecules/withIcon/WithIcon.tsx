@@ -2,7 +2,7 @@ import { FC } from "react"
 import "./withIcon.css"
 
 interface WithIconProps {
-  Icon: FC
+  Icon: FC<{ size: number; color: string }>
   posIcon?: "left" | "center"
   width?: string
   iconColor?: string
@@ -13,6 +13,7 @@ export const WithIcon: FC<React.PropsWithChildren<WithIconProps>> = ({
   children,
   posIcon = "center",
   width,
+  iconColor = "#5F706A",
 }) => {
   return (
     <div
@@ -27,7 +28,10 @@ export const WithIcon: FC<React.PropsWithChildren<WithIconProps>> = ({
           justifyContent: posIcon === "center" ? "center" : "flex-start",
         }}
       >
-        <Icon />
+        <Icon
+          size={15}
+          color={iconColor}
+        />
       </div>
       {children}
     </div>

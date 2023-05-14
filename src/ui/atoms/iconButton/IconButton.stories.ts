@@ -5,6 +5,12 @@ import { MdDeleteOutline, MdDone } from "react-icons/md"
 const meta = {
   title: "Test/Atoms/IconButton",
   component: IconButton,
+  parameters: {
+    backgrounds: {
+      default: "default",
+      values: [{ name: "default", value: "white" }],
+    },
+  },
 } satisfies Meta<typeof IconButton>
 
 export default meta

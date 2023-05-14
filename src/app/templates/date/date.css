@@ -1,5 +1,3 @@
-
-
 .date-contenair {
   height: 88px;
   width: 1044px;
@@ -25,6 +23,9 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+  max-width: max-content;
 }
 
 .cont-date-inp-whole-day {
@@ -38,12 +39,18 @@
   font-weight: 600;
 }
 
+.cont-date-inp-whole-day label {
+  width: max-content;
+}
+
 .date-icon-contenair {
   width: 40px;
+  min-width: 40px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #7F8C88;
 }
 
 .date-choice-hour {

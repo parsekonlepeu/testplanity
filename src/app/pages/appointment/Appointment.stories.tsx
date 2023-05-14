@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/react"
 import { FC } from "react"
-import { ListPresta } from "./ListPresta"
+import { Appointment } from "./Appointment"
 import {
   AppointmentState,
   addPrestationReducer,
@@ -45,26 +45,30 @@ const Mockstore: FC<React.PropsWithChildren<ChildMock>> = ({
 )
 
 const meta = {
-  title: "Test/Templates/ListPresta",
+  title: "Test/Pages/Appointment",
   decorators: [(story) => <div style={{ padding: "3rem" }}>{story()}</div>],
-  component: ListPresta,
-  parameters: {
-    backgrounds: {
-      default: "default",
-      values: [{ name: "default", value: "#F9F9F9" }],
-    },
-  },
-} satisfies Meta<typeof ListPresta>
+  component: Appointment,
+} satisfies Meta<typeof Appointment>
 
 export default meta
 
-export const Active = {
+export const Default = {
+  decorators: [
+    (story: () => React.ReactNode) => (
+      <Mockstore appointmentState={mockState}>{story()}</Mockstore>
+    ),
+  ],
+}
+
+export const NotCreated = {
   decorators: [
     (story: () => React.ReactNode) => (
       <Mockstore
         appointmentState={{
           ...mockState,
-          created: true,
+          nameClient: "François Rolet",
+          tel: "06 00 00 00 00",
+          email: "f.rolet@mail.com",
         }}
       >
         {story()}
@@ -73,10 +77,40 @@ export const Active = {
   ],
 }
 
-export const Disabled = {
+export const CreatedCame = {
   decorators: [
     (story: () => React.ReactNode) => (
-      <Mockstore appointmentState={mockState}>{story()}</Mockstore>
+      <Mockstore
+        appointmentState={{
+          ...mockState,
+          nameClient: "François Rolet",
+          tel: "06 00 00 00 00",
+          email: "f.rolet@mail.com",
+          created: true,
+          came: true,
+        }}
+      >
+        {story()}
+      </Mockstore>
+    ),
+  ],
+}
+
+export const CreatedNotCame = {
+  decorators: [
+    (story: () => React.ReactNode) => (
+      <Mockstore
+        appointmentState={{
+          ...mockState,
+          nameClient: "François Rolet",
+          tel: "06 00 00 00 00",
+          email: "f.rolet@mail.com",
+          created: true,
+          came: false,
+        }}
+      >
+        {story()}
+      </Mockstore>
     ),
   ],
 }

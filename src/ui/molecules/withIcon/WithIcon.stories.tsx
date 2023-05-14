@@ -1,22 +1,23 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { WithIcon } from "./WithIcon";
-import { MdOutlineCake, MdOutlinePerson } from "react-icons/md";
-import { ChoiceBirthday } from "../../atoms/choiceBirthday/ChoiceBirthday";
-import { ToggleButton } from "../../atoms/toggleButton/ToggleButton";
-import { TapButton } from "../../atoms/button/TapButton";
+import type { Meta, StoryObj } from "@storybook/react"
+import { WithIcon } from "./WithIcon"
+import { MdOutlineCake, MdOutlinePerson } from "react-icons/md"
+import { ChoiceBirthday } from "../../atoms/choiceBirthday/ChoiceBirthday"
+import { ToggleButton } from "../../atoms/toggleButton/ToggleButton"
+import { TapButton } from "../../atoms/button/TapButton"
 
 const meta = {
   title: "Test/Molecules/WithIcon",
   component: WithIcon,
   parameters: {
     backgrounds: {
-      default: "white",
+      default: "default",
+      values: [{ name: "default", value: "white" }],
     },
   },
-} satisfies Meta<typeof WithIcon>;
+} satisfies Meta<typeof WithIcon>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const withChoiceBirthday: Story = {
   args: {
@@ -24,7 +25,7 @@ export const withChoiceBirthday: Story = {
     children: <ChoiceBirthday />,
     posIcon: "left",
   },
-};
+}
 
 export const withToggleButton: Story = {
   args: {
@@ -37,7 +38,7 @@ export const withToggleButton: Story = {
     ),
     posIcon: "left",
   },
-};
+}
 
 export const withText: Story = {
   args: {
@@ -46,7 +47,8 @@ export const withText: Story = {
       <TapButton
         label="Info client"
         type="text"
+        padding={0}
       />
     ),
   },
-};
+}

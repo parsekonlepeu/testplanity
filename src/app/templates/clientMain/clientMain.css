@@ -1,4 +1,5 @@
 .client-main-contenair {
   display: flex; 
   gap: 16px;
+  height: 48px;
 }

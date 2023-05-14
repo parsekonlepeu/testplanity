@@ -1,20 +1,19 @@
 import { FC, useCallback } from "react"
-import "./date.css"
 import { useAppDispatch, useAppSelector } from "../../../store/hookTypedredux"
 import { ChoiceDate } from "../../../ui/atoms/choiceDate/ChoiceDate"
 import { ChoiceHour } from "../../../ui/atoms/choiceHour/ChoiceHour"
 import { simpleChangeAppointment } from "../../../store/slices/appointmentSlice"
 import { WithIcon } from "../../../ui/molecules/withIcon/WithIcon"
 import { TapButton } from "../../../ui/atoms/button/TapButton"
-import { MdSync, MdCalendarToday } from "react-icons/md"
+import { MdSync, MdOutlineCalendarToday } from "react-icons/md"
 import { Grow } from "../../../ui/atoms/Grow/Grow"
+import "./date.css"
 
 export const Date: FC = () => {
   const dispatch = useAppDispatch()
   const date = useAppSelector((state) => state.appointment.date)
   const wholeDay = useAppSelector((state) => state.appointment.wholeDay)
   const startTime = useAppSelector((state) => state.appointment.startTime)
-  const endTime = useAppSelector((state) => state.appointment.endTime)
 
   const handleClickWholeDay = useCallback(() => {
     dispatch(
@@ -29,7 +28,7 @@ export const Date: FC = () => {
     <div className="date-contenair">
       <div className="date-main">
         <div className="date-icon-contenair">
-          <MdCalendarToday />
+          <MdOutlineCalendarToday size={20} />
         </div>
         <ChoiceDate date={date} />
         <Grow
@@ -61,15 +60,19 @@ export const Date: FC = () => {
             name="wholeDay"
             checked={wholeDay}
           />
-          <label htmlFor="wholeDay">journée entier</label>
+          <label htmlFor="wholeDay">jour entier</label>
         </div>
       </div>
       <div className="date-repeat-cont">
-        <WithIcon Icon={MdSync}>
+        <WithIcon
+          Icon={MdSync}
+          iconColor="#48BB78"
+        >
           <TapButton
             label="Répéter"
             labelColor="#48BB78"
             type="text"
+            padding={0}
           />
         </WithIcon>
       </div>

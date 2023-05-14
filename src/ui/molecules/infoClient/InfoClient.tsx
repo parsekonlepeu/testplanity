@@ -33,6 +33,7 @@ export const InfoClient: FC<InfoClientProps> = ({ fold = true, text }) => {
           type="text"
           label="Info Client"
           onClick={handleClick}
+          padding={0}
         />
       ) : null}
       <Grow

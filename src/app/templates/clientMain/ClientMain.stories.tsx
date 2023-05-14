@@ -1,17 +1,17 @@
-import type { Meta } from "@storybook/react";
-import { FC } from "react";
-import { ClientMain } from "./ClientMain";
+import type { Meta } from "@storybook/react"
+import { FC } from "react"
+import { ClientMain } from "./ClientMain"
 import {
   AppointmentState,
   initialStateAppointment as mockState,
   simpleChangeAppointmentReducer,
-} from "../../../store/slices/appointmentSlice";
-import { Provider } from "react-redux";
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+} from "../../../store/slices/appointmentSlice"
+import { Provider } from "react-redux"
+import { configureStore, createSlice } from "@reduxjs/toolkit"
 
 type ChildMock = {
-  appointmentState: AppointmentState;
-};
+  appointmentState: AppointmentState
+}
 
 const Mockstore: FC<React.PropsWithChildren<ChildMock>> = ({
   appointmentState,
@@ -32,15 +32,21 @@ const Mockstore: FC<React.PropsWithChildren<ChildMock>> = ({
   >
     {children}
   </Provider>
-);
+)
 
 const meta = {
   title: "Test/Templates/ClientMain",
   decorators: [(story) => <div style={{ padding: "3rem" }}>{story()}</div>],
   component: ClientMain,
-} satisfies Meta<typeof ClientMain>;
+  parameters: {
+    backgrounds: {
+      default: "white",
+      values: [{ name: "white", value: "white" }],
+    },
+  },
+} satisfies Meta<typeof ClientMain>
 
-export default meta;
+export default meta
 
 export const Default = {
   decorators: [
@@ -48,7 +54,7 @@ export const Default = {
       <Mockstore appointmentState={mockState}>{story()}</Mockstore>
     ),
   ],
-};
+}
 
 export const Created = {
   decorators: [
@@ -63,4 +69,4 @@ export const Created = {
       </Mockstore>
     ),
   ],
-};
+}

@@ -1,12 +1,12 @@
-import { useAppDispatch } from "../../store/hookTypedredux";
-import { useCallback } from "react";
+import { useAppDispatch } from "../../store/hookTypedredux"
+import { useCallback } from "react"
 import {
   initAppointment,
   simpleChangeAppointment,
-} from "../../store/slices/appointmentSlice";
+} from "../../store/slices/appointmentSlice"
 
 export const useControlClientMain = () => {
-  const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch()
 
   const onCreate = useCallback(() => {
     dispatch(
@@ -14,13 +14,12 @@ export const useControlClientMain = () => {
         keys: ["created"],
         values: [true],
       })
-    );
-  }, []);
+    )
+  }, [])
 
   const onDelete = useCallback(() => {
-    console.log("dans on delete !!");
-    dispatch(initAppointment(null));
-  }, []);
+    dispatch(initAppointment(null))
+  }, [])
 
   const onChangeTel = useCallback((tel: string) => {
     dispatch(
@@ -28,8 +27,8 @@ export const useControlClientMain = () => {
         keys: ["tel"],
         values: [tel],
       })
-    );
-  }, []);
+    )
+  }, [])
 
   const onChangeName = useCallback((name: string) => {
     dispatch(
@@ -37,8 +36,8 @@ export const useControlClientMain = () => {
         keys: ["nameClient"],
         values: [name],
       })
-    );
-  }, []);
+    )
+  }, [])
 
   const onChangeEmail = useCallback((email: string) => {
     dispatch(
@@ -46,8 +45,8 @@ export const useControlClientMain = () => {
         keys: ["email"],
         values: [email],
       })
-    );
-  }, []);
+    )
+  }, [])
 
   return {
     onCreate,
@@ -55,5 +54,5 @@ export const useControlClientMain = () => {
     onChangeTel,
     onChangeName,
     onChangeEmail,
-  };
-};
+  }
+}

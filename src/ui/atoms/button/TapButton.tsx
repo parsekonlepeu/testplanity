@@ -11,6 +11,7 @@ interface TapButtonProps {
   hoverTextColor?: string
   backgroundColor?: string
   onClick?: () => void
+  padding?: number
 }
 
 export const TapButton = forwardRef<HTMLButtonElement, TapButtonProps>(
@@ -22,6 +23,7 @@ export const TapButton = forwardRef<HTMLButtonElement, TapButtonProps>(
       label,
       hoverTextColor = "#48BB78",
       onClick,
+      padding = 10,
     },
     ref
   ) => {
@@ -37,7 +39,7 @@ export const TapButton = forwardRef<HTMLButtonElement, TapButtonProps>(
             type === "contained" ? backgroundColor : "transparent",
           color: hover && type === "text" ? hoverTextColor : labelColor,
           textDecoration: type === "text" ? "underline" : undefined,
-          padding: type === "text" ? "0px" : undefined,
+          padding: padding,
           height: type === "text" ? undefined : "36px",
           fontWeight: type === "text" ? 600 : 400,
         }}

@@ -18,6 +18,7 @@ export const Default: Story = {
       collaborateur: "",
       price: 60,
     },
+    key: "zz",
   },
 }
 
@@ -30,6 +31,7 @@ export const Disabled: Story = {
       collaborateur: "",
       price: 60,
     },
+    key: "zz",
     disabled: true,
   },
 }

@@ -4,6 +4,12 @@ import { TapButton } from "./TapButton"
 const meta = {
   title: "Test/Atoms/Button",
   component: TapButton,
+  parameters: {
+    backgrounds: {
+      default: "default",
+      values: [{ name: "default", value: "white" }],
+    },
+  },
 } satisfies Meta<typeof TapButton>
 
 export default meta

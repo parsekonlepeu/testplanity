@@ -9,10 +9,10 @@ import {
 import { ChoiceBirthday } from "../../../ui/atoms/choiceBirthday/ChoiceBirthday"
 import { ToggleButton } from "../../../ui/atoms/toggleButton/ToggleButton"
 import { ToggleSwitch } from "../../../ui/atoms/toggleSwitch/ToggleSwitch"
-import "./clientDown.css"
 import { TapButton } from "../../../ui/atoms/button/TapButton"
 import { InfoClient } from "../../../ui/molecules/infoClient/InfoClient"
 import { useAppSelector } from "../../../store/hookTypedredux"
+import "./clientDown.css"
 
 export const ClientDown: FC = () => {
   const genre = useAppSelector((state) => state.appointment.genre)
@@ -27,6 +27,7 @@ export const ClientDown: FC = () => {
         <WithIcon
           Icon={MdOutlinePerson}
           posIcon="left"
+          iconColor="#5F706A"
         >
           <ToggleButton
             values={["Homme", "Femme", "Enfants"]}
@@ -37,6 +38,7 @@ export const ClientDown: FC = () => {
         <WithIcon
           Icon={MdOutlineCake}
           posIcon="left"
+          iconColor="#5F706A"
         >
           <ChoiceBirthday
             dayInit={birthday.day}
@@ -65,10 +67,13 @@ export const ClientDown: FC = () => {
           <WithIcon
             Icon={MdContentCopy}
             posIcon="left"
+            iconColor="#5F706A"
           >
             <TapButton
               type="text"
               label="Carte de fidélité"
+              labelColor="#34423E"
+              padding={0}
             />
           </WithIcon>
           <p>{` : Points : ${loyalty.points} - Gains : ${loyalty.gain}€ (+)`}</p>
@@ -77,10 +82,13 @@ export const ClientDown: FC = () => {
           <WithIcon
             Icon={MdCardMembership}
             posIcon="left"
+            iconColor="#5F706A"
           >
             <TapButton
               type="text"
               label="Forfait brushing par 5 - cheveux courts"
+              labelColor="#34423E"
+              padding={0}
             />
           </WithIcon>
           <p>{"(4)"}</p>

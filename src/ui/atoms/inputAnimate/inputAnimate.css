@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
 
-#choiceclient {
+#inp-anim {
   position: relative; 
   height: 44px;
   width: 100%;
@@ -14,28 +14,28 @@
   line-height: 16px;
   background-color: transparent;
 }
-#choiceclient:focus {
+#inp-anim:focus {
   border: none;
   outline: none;
   transform: translate3d(0,24px,0);
   height: 16px;
 }
-#choiceclient:focus + .label-choice-client {
+#inp-anim:focus + .label-inp-anim {
   transform: translate3d(0,-6px,0) ;
   font-size: 12px;
 }
-#choiceclient:not(:placeholder-shown):not(:focus) + .label-choice-client {
+#inp-anim:not(:placeholder-shown):not(:focus) + .label-inp-anim {
   transform: translate3d(0,-6px,0) ;
   font-size: 12px;
 }
-#choiceclient:not(:placeholder-shown):not(:focus) {
+#inp-anim:not(:placeholder-shown):not(:focus) {
   border: none;
   outline: none;
   transform: translate3d(0,24px,0);
   height: 16px;
 }
 
-.main-choiceclient {
+.main-inp-anim {
   position: relative;
   display: flex;
   flex: 1;
@@ -43,7 +43,7 @@
   max-width: 300px;
 }
 
-.label-choice-client {
+.label-inp-anim {
   position: absolute;
   top: 14px;
   left: 0px;

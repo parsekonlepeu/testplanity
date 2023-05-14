@@ -21,6 +21,7 @@ interface DropdownProps {
   listChoice: ListDropDown<unknown>
   disable?: boolean
   color: string
+  value?: string
 }
 
 const othersColors = ["#9F7AEA", "#F56565", "#ECC94B"]
@@ -32,8 +33,9 @@ export const Dropdown: FC<DropdownProps> = ({
   listChoice,
   disable = false,
   color = "#48BB78",
+  value,
 }) => {
-  const [value, setValue] = useState("")
+  const [innervalue, setInnervalue] = useState(value ? value : "")
   const [open, setOpen] = useState(false)
   const [width, setWidth] = useState(100)
 
@@ -46,6 +48,10 @@ export const Dropdown: FC<DropdownProps> = ({
     document.addEventListener("mousedown", handleClickOutside)
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
+
+  useEffect(() => {
+    value !== undefined && setInnervalue(value)
+  }, [value])
 
   useLayoutEffect(() => {
     const dropdown = document.getElementById("dropdown-wrapper")
@@ -66,11 +72,8 @@ export const Dropdown: FC<DropdownProps> = ({
       <button
         className="dropdown-main"
         onClick={handleClick}
-        style={{
-          border: open ? "1px #48BB78 solid" : "1px #ECEEED solid",
-        }}
       >
-        {value !== "" ? (
+        {innervalue !== "" ? (
           <span
             className="dropdown-span-left"
             style={{ backgroundColor: color }}
@@ -80,13 +83,13 @@ export const Dropdown: FC<DropdownProps> = ({
           <div className="dropdown-value">
             <p
               style={{
-                color: open && !value ? "#34423E" : "#7F8C88",
+                color: open && !innervalue ? "#34423E" : "#7F8C88",
               }}
             >
-              {value !== "" ? labelSelect : label}
+              {innervalue !== "" ? labelSelect : label}
             </p>
-            {value !== "" ? (
-              <p className="dropdown-text-value">{value}</p>
+            {innervalue !== "" ? (
+              <p className="dropdown-text-value">{innervalue}</p>
             ) : null}
           </div>
           {!open ? (
@@ -103,14 +106,20 @@ export const Dropdown: FC<DropdownProps> = ({
         </div>
       </button>
       {open ? (
-        <div className="dropdown-list">
+        <div
+          className="dropdown-list"
+          onMouseDown={(e) => {
+            e.preventDefault()
+            e.stopPropagation()
+          }}
+        >
           {listChoice.map((choice, index) => {
             const handleClickChoice: React.MouseEventHandler<
               HTMLButtonElement
             > = (e) => {
               e.preventDefault()
               e.stopPropagation()
-              setValue(choice.name)
+              value === undefined && setInnervalue(choice.name)
               onChange && onChange(choice)
               setOpen(false)
             }

@@ -39,18 +39,11 @@ export const Grow: FC<PropsWithChildren<GrowProps>> = forwardRef<
         childrenContenair.style.maxWidth = `0px`
       }
     }
-    console.log("on enter", ent)
   }
   const handleEnterActive = () => {
-    console.log("-----------------------")
     const childrenContenair = document.getElementById("children-contenair")
     if (childrenContenair) {
       if (direction === "vertical") {
-        console.log("heightRef.current", heightRef.current)
-        console.log(
-          "childrenContenair.style.maxHeight",
-          childrenContenair.style.maxHeight
-        )
         childrenContenair.style.maxHeight = `${heightRef.current}px`
         childrenContenair.style.transition = `max-height ${duration}ms`
       } else {
@@ -58,7 +51,6 @@ export const Grow: FC<PropsWithChildren<GrowProps>> = forwardRef<
         childrenContenair.style.transition = `max-width ${duration}ms`
       }
     }
-    console.log("on enter active")
   }
   const handleExit = () => {
     const childrenContenair = document.getElementById("children-contenair")
@@ -69,6 +61,16 @@ export const Grow: FC<PropsWithChildren<GrowProps>> = forwardRef<
       } else {
         childrenContenair.style.maxWidth = `0px`
         childrenContenair.style.transition = `max-width ${duration}ms`
+      }
+    }
+  }
+  const handleEntered = () => {
+    const childrenContenair = document.getElementById("children-contenair")
+    if (childrenContenair) {
+      if (direction === "vertical") {
+        childrenContenair.style.minHeight = `max-content`
+      } else {
+        childrenContenair.style.minWidth = `max-content`
       }
     }
   }
@@ -83,6 +85,7 @@ export const Grow: FC<PropsWithChildren<GrowProps>> = forwardRef<
       onExiting={handleExit}
       onExited={onExit}
       onEnter={handleEnter}
+      onEntered={handleEntered}
     >
       <div
         ref={refdiv}
