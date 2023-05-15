@@ -9,16 +9,18 @@ import { Grow } from "../../atoms/Grow/Grow"
 interface InfoClientProps {
   fold?: boolean
   text: string
+  onClick?: () => void
 }
 
 export const InfoClient = forwardRef<HTMLDivElement, InfoClientProps>(
-  ({ fold = true, text }) => {
+  ({ fold = true, text, onClick }) => {
     const [isFold, setIsFold] = useState(fold !== undefined ? fold : true)
     const [buttonVisible, setButtonVisible] = useState(
       fold !== undefined ? !fold : false
     )
     const handleClick = useCallback(() => {
       setIsFold(!isFold)
+      onClick && onClick()
     }, [isFold])
 
     const nodeRef = useRef(null)

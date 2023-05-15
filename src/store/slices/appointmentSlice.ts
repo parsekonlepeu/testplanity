@@ -28,6 +28,7 @@ export interface AppointmentState {
   startTime: TimeAppointment
   endTime: TimeAppointment
   listPrestations: ListePrestation
+  infoClientOpen: boolean
 }
 
 export const initialStateAppointment: AppointmentState = {
@@ -46,6 +47,7 @@ export const initialStateAppointment: AppointmentState = {
   nameClient: "",
   infoClient:
     "Quam inposita tranquillis pleraeque sunt primigenia eis quae institutores ad.",
+  infoClientOpen: false,
   loyalty: {
     gain: 10,
     points: 42,

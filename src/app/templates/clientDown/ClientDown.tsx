@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { FC, useCallback } from "react"
 import { WithIcon } from "../../../ui/molecules/withIcon/WithIcon"
 import {
   MdOutlineCake,
@@ -11,16 +11,29 @@ import { ToggleButton } from "../../../ui/atoms/toggleButton/ToggleButton"
 import { ToggleSwitch } from "../../../ui/atoms/toggleSwitch/ToggleSwitch"
 import { TapButton } from "../../../ui/atoms/button/TapButton"
 import { InfoClient } from "../../../ui/molecules/infoClient/InfoClient"
-import { useAppSelector } from "../../../store/hookTypedredux"
+import { useAppDispatch, useAppSelector } from "../../../store/hookTypedredux"
 import "./clientDown.css"
+import { simpleChangeAppointment } from "../../../store/slices/appointmentSlice"
 
 export const ClientDown: FC = () => {
+  const dispatch = useAppDispatch()
   const genre = useAppSelector((state) => state.appointment.genre)
   const birthday = useAppSelector((state) => state.appointment.birthday)
   const remiderSMS = useAppSelector((state) => state.appointment.remiderSMS)
   const marketingSMS = useAppSelector((state) => state.appointment.marketingSMS)
   const infoClient = useAppSelector((state) => state.appointment.infoClient)
   const loyalty = useAppSelector((state) => state.appointment.loyalty)
+  const infoClientOpen = useAppSelector(
+    (state) => state.appointment.infoClientOpen
+  )
+  const handleClickInfoClient = useCallback(() => {
+    dispatch(
+      simpleChangeAppointment({
+        keys: ["infoClientOpen"],
+        values: [!infoClientOpen],
+      })
+    )
+  }, [infoClientOpen])
   return (
     <div className="client-down-contenair">
       <div className="client-down-first-line">
@@ -60,6 +73,7 @@ export const ClientDown: FC = () => {
         <InfoClient
           text={infoClient}
           fold={false}
+          onClick={handleClickInfoClient}
         />
       </div>
       <div className="client-down-third-line">

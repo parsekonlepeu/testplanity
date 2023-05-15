@@ -12,6 +12,7 @@ export const Info = forwardRef<HTMLDivElement, InfoProps>(
   ({ label, text, onClick, width = "964px" }, ref) => {
     return (
       <div
+        id="info-contenair"
         className="info-contenair"
         onClick={onClick}
         ref={ref}

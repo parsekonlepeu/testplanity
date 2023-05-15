@@ -8,8 +8,16 @@ import { Grow } from "../../../ui/atoms/Grow/Grow"
 
 export const Client: FC = () => {
   const created = useAppSelector((state) => state.appointment.created)
+  const infoClientOpen = useAppSelector(
+    (state) => state.appointment.infoClientOpen
+  )
   return (
-    <div className="client-container">
+    <div
+      className="client-container"
+      style={{
+        maxHeight: created ? "500px" : "88px",
+      }}
+    >
       <div className="client-wrapper-icon">
         <MdOutlineAccountCircle
           size={20}
@@ -17,14 +25,13 @@ export const Client: FC = () => {
         />
       </div>
       <ClientMain />
-      {/* <Grow
+      <Grow
         direction="vertical"
-        duration={200}
+        duration={400}
         isin={created}
       >
         <ClientDown />
-      </Grow> */}
-      {created ? <ClientDown /> : null}
+      </Grow>
     </div>
   )
 }
