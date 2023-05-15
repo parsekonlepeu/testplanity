@@ -55,7 +55,10 @@ export const Dropdown: FC<DropdownProps> = ({
 
   useLayoutEffect(() => {
     const dropdown = document.getElementById("dropdown-wrapper")
-    dropdown && setWidth(dropdown?.getClientRects()[0].width)
+    const clientRects = dropdown && dropdown.getClientRects()[0]
+    if (clientRects) {
+      dropdown && setWidth(clientRects.width)
+    }
   }, [label])
 
   const handleClick: React.MouseEventHandler<HTMLButtonElement> = useCallback(

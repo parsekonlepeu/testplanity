@@ -44,25 +44,28 @@ export const ListPresta: FC = () => {
     <div className="list-prest-contenair">
       <TransitionGroup className="prest-list">
         {addNodeRef(listPrestations).map((prestation) => {
-          const onDelete = () => {
+          const onDelete = useCallback(() => {
             dispatch(delPrestation(prestation.id))
-          }
-          const onChangePrestation: ChangeDropdown = (choice) => {
+          }, [])
+          const onChangePrestation: ChangeDropdown = useCallback((choice) => {
             dispatch(
               changePresPrestations({
                 id: prestation.id,
                 newPresta: choice,
               })
             )
-          }
-          const onChangeCollaborateur: ChangeDropdown = (choice) => {
-            dispatch(
-              changeCollPrestations({
-                id: prestation.id,
-                newColl: choice.name,
-              })
-            )
-          }
+          }, [])
+          const onChangeCollaborateur: ChangeDropdown = useCallback(
+            (choice) => {
+              dispatch(
+                changeCollPrestations({
+                  id: prestation.id,
+                  newColl: choice.name,
+                })
+              )
+            },
+            []
+          )
           return (
             <CSSTransition
               key={prestation.id}
