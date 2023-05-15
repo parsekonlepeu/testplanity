@@ -121,14 +121,11 @@ export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(
             onMouseDown={(e) => {
               e.preventDefault()
               e.stopPropagation()
+              console.log("iciiii")
             }}
           >
             {listChoice.map((choice, index) => {
-              const handleClickChoice: React.MouseEventHandler<
-                HTMLButtonElement
-              > = (e) => {
-                e.preventDefault()
-                e.stopPropagation()
+              const handleClickChoice = () => {
                 value === undefined && setInnervalue(choice.name)
                 onChange && onChange(choice)
                 setOpen(false)
@@ -141,6 +138,9 @@ export const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(
                     minWidth: `${width}px`,
                   }}
                   onMouseDown={handleClickChoice}
+                  onKeyDown={(e) => {
+                    e.code === "Enter" ? handleClickChoice() : null
+                  }}
                 >
                   <span
                     style={{
