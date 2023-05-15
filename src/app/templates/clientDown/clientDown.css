@@ -4,7 +4,8 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  width: 1044px;
+  width: 1004px;
+  max-width: 1004px;
   font-family: 'Open Sans';
   background-color: white;
 }
@@ -29,7 +30,7 @@
 
 .client-down-toggles {
   display: flex;
-  width: 388px;
+  /* width: 388px; */
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;

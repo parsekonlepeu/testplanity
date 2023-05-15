@@ -61,12 +61,14 @@ export const Presta = forwardRef<HTMLDivElement, PrestaProps>(
           </div>
         </div>
         <div className="p-c-right">
+          {prestation.name !== "" ? (
+            <DisplayValue
+              value={prestation.time}
+              unit="Min"
+            />
+          ) : null}
           <DisplayValue
-            value={prestation.time}
-            unit="Min"
-          />
-          <DisplayValue
-            value={prestation.price}
+            value={prestation.name !== "" ? prestation.price : 0}
             unit="€"
           />
           {!disabled ? <ButtonDelete onClick={onDelete} /> : null}
