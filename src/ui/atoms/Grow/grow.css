@@ -1,19 +1,47 @@
 .grow-enter {
   overflow: hidden;
+  transform: scaleX(0);
 }
 
 .grow-enter-active {
   overflow: hidden;
+  transform: scaleX(1);
+  transform-origin: top left;
+  transition: transform 200ms;
 }
 
 .grow-exit {
   overflow: hidden;
+  transform: scaleX(1);
 }
 
 .grow-exit-active {
   overflow: hidden;
+  transform: scaleX(0);
+  transform-origin: top left;
+  transition: transform 200ms;
 }
 
-#children-contenair {
-  width: 100%;
+.growY-enter {
+  overflow: hidden;
+  transform: scaleY(0);
+}
+
+.growY-enter-active {
+  overflow: hidden;
+  transform: scaleY(1);
+  transform-origin: top left;
+  transition: transform 200ms;
+}
+
+.growY-exit {
+  overflow: hidden;
+  transform: scaleY(1);
+}
+
+.growY-exit-active {
+  overflow: hidden;
+  transform: scaleY(0);
+  transform-origin: top left;
+  transition: transform 200ms;
 }

@@ -29,6 +29,8 @@
 }
 
 .cont-date-inp-whole-day {
+  position: absolute;
+  left: 720px;
   display: flex;
   flex-direction: row;
   -webkit-box-sizing: border-box; 
@@ -37,6 +39,7 @@
   padding-left: 18px;
   gap: 6px;
   font-weight: 600;
+  transition: transform 200ms;
 }
 
 .cont-date-inp-whole-day label {

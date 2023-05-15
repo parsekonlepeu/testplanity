@@ -38,13 +38,14 @@ export const InfoClient: FC<InfoClientProps> = ({ fold = true, text }) => {
       ) : null}
       <Grow
         isin={isFold}
-        duration={200}
+        duration={100}
         onExit={() => {
           setButtonVisible(true)
         }}
         onEnter={() => {
           setButtonVisible(false)
         }}
+        direction="vertical"
       >
         <Info
           label="Info Client"

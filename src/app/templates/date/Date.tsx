@@ -53,6 +53,9 @@ export const Date: FC = () => {
         <div
           className="cont-date-inp-whole-day"
           onClick={handleClickWholeDay}
+          style={{
+            transform: wholeDay ? "translateX(-350px)" : "translateX(0px)",
+          }}
         >
           <input
             type="checkbox"
