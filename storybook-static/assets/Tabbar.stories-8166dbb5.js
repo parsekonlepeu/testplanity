@@ -1,0 +1,2 @@
+import{T as t}from"./Tabbar-52912609.js";import"./jsx-runtime-6eef64cc.js";import"./index-c013ead5.js";import"./_commonjsHelpers-725317a4.js";import"./TapButton-9a92e109.js";import"./useHover-fea14334.js";import"./WithIcon-13eb9f6b.js";import"./index.esm-1814e9b6.js";import"./appointmentSlice-91d9bc63.js";import"./index-169ee69c.js";import"./v4-a960c1f4.js";const c={title:"Test/Templates/Tabbar",component:t},d=[];export{d as __namedExportsOrder,c as default};
+//# sourceMappingURL=Tabbar.stories-8166dbb5.js.map

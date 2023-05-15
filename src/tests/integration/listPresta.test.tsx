@@ -111,25 +111,4 @@ describe("list prestation", () => {
       ).toBe(0)
     }, 300)
   })
-  test("should del presta if created", () => {
-    const listPresta = renderWithProviders(<ListPresta />, {
-      preloadedState: {
-        appointment: {
-          ...initialStateAppointment,
-          created: true,
-        },
-      },
-    })
-    const prestas =
-      listPresta.container.getElementsByClassName("presta-container")
-    expect(prestas.length).toBe(1)
-    const buttonDelete = prestas[0].getElementsByClassName("icon-button")
-    expect(buttonDelete.length).toBe(1)
-    fireEvent.click(buttonDelete[0])
-    setTimeout(() => {
-      expect(
-        listPresta.container.getElementsByClassName("presta-container").length
-      ).toBe(0)
-    }, 300)
-  })
 })

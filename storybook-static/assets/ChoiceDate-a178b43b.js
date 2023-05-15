@@ -1,0 +1,2 @@
+import{j as a}from"./jsx-runtime-6eef64cc.js";import{r as o}from"./index-c013ead5.js";const t=o.forwardRef(({date:e},r)=>a.jsx("button",{ref:r,className:"choice-date",children:e}));try{t.displayName="ChoiceDate",t.__docgenInfo={description:"",displayName:"ChoiceDate",props:{date:{defaultValue:null,description:"",name:"date",required:!0,type:{name:"string"}}}}}catch{}export{t as C};
+//# sourceMappingURL=ChoiceDate-a178b43b.js.map
